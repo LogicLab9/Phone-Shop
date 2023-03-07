@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Script>
+        window.addEventListener("load" , loadPohneBookView);
+        function loadPohneBookView(){
+            var http = new XMLHttpRequest();
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                        
+                    display.innerHTML = this.responseText;
+                    // document.getElementById("display").innerHTML = this.responseText;
+                }
+            }
+            http.open("Get","index.php", true);
+            http.send();
+        }
+    </Script>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>ItemCode</td>
+                <td>Status_Item_id</td>
+                <td>SubCatagory_Id</td>
+                <td>Brand_Id</td>
+            </tr>    
+        </thead>
+        <tbody id="display">
+        </tbody>
+    </table>
+    
+</body>
+</html>
