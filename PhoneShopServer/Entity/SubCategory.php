@@ -1,6 +1,6 @@
 <?php
 
-class SubCatogory
+class SubCategory
 {
     public $id;
     public $name;
