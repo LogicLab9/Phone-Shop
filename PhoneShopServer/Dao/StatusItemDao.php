@@ -1,7 +1,7 @@
 <?php
 
  require_once("CommonDao.php");
- require_once("../Entity/StatusItem.php");
+ require_once("Entity/StatusItem.php");
 
 class StatusItemDao
 {

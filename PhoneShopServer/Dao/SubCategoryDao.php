@@ -1,6 +1,6 @@
 <?php
    require_once("CommonDao.php");
-   require_once("../Entity/SubCategory.php");
+   require_once("Entity/SubCategory.php");
 class SubCategoryDao
 {
     public static function getById($id){

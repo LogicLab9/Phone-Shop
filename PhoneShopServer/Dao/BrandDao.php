@@ -1,7 +1,7 @@
 <?php
 
     require_once("CommonDao.php");
-    require_once("../Entity/Brand.php");
+    require_once("Entity/Brand.php");
 class BrandDao
 {
 
