@@ -7,8 +7,8 @@ class CommonDao
 
 
         $servername = "localhost";
-        $username = "root";
-        $password = "1234";
+        $username = "admin";
+        $password = "12345";
         $database = "phone_Shop";
 
         // Create connection
@@ -20,5 +20,6 @@ class CommonDao
         }
         return $dbconn->query($query);
     }
+
 
 }
