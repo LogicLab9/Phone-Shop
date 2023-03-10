@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ApiConfig} from "../shared/ApiConfig";
 import {Item} from "../entities/Item";
-
+import {ApiConfig} from "../shared/ApiConfig";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItemServiceService {
+export class ItemService {
 
   constructor(private http: HttpClient) {
   }
@@ -17,5 +16,4 @@ export class ItemServiceService {
     // @ts-ignore
     return this.http.get<Item[]>(url).toPromise();
 
-  }
-}
+  }}

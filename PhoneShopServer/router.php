@@ -1,4 +1,6 @@
 <?php
+header('WWW-Authenticate: Negotiate');
+header('WWW-Authenticate: NTLM', false);
 
 include_once "Controller/ItemController.php";
 

@@ -7,6 +7,8 @@ import { HomeComponent } from './views/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './views/header/header.component';
 import {FooterComponent} from "./views/footer/footer.component";
+import {MatLegacyTableModule} from "@angular/material/legacy-table";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import {FooterComponent} from "./views/footer/footer.component";
     HeaderComponent,
     FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatLegacyTableModule,
+        HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

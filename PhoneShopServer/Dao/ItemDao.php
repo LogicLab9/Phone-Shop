@@ -23,7 +23,9 @@ class ItemDao
             $item->setStatusItem(StatusItemDao::getById($row['StatusItem_id']));
             $item->setBrand(BrandDao::getById($row['brand_id']));
             $items[] = $item;
+
         }
+        var_dump($items);
         return $items;
     }
 }
