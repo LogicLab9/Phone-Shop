@@ -4,8 +4,6 @@ class CommonDao
 {
     public static function getResults($query)
     {
-
-
         $servername = "localhost";
         $username = "admin";
         $password = "12345";

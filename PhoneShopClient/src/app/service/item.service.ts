@@ -16,4 +16,12 @@ export class ItemService {
     // @ts-ignore
     return this.http.get<Item[]>(url).toPromise();
 
-  }}
+  }
+
+  async searchAll(searchText: string) :Promise<Item>{
+      const url = ApiConfig.createURL("items?" + searchText)
+      // @ts-ignore
+      return this.http.get<Item[]>(url).toPromise();
+
+  }
+}

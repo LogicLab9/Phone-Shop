@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemService} from "../../service/item.service";
 import {Item} from "../../entities/Item";
+import {Brand} from "../../entities/Brand";
+import {BrandService} from "../../service/brand.service";
+import {FormControl, FormGroup} from "@angular/forms";
+import {SubCategory} from "../../entities/subCategory";
+import {SubcategoryService} from "../../service/subcategory.service";
 
 @Component({
   selector: 'app-item-veiw',
@@ -9,21 +14,77 @@ import {Item} from "../../entities/Item";
 })
 export class ItemVeiwComponent implements OnInit {
   items: Item[] = [];
+  brands: Brand[] = [];
+  subcategories: SubCategory[] = [];
+
   displayedColumns: string[] = [];
-  constructor(private itemservice:ItemService) {
+
+  itemSearchForm = new FormGroup({
+    item: new FormControl(),
+    brand: new FormControl(),
+    subcategory: new FormControl()
+  });
+
+  constructor(private itemservice: ItemService, private brandService: BrandService, private subcategoryService: SubcategoryService) {
+  }
+
+  get itemField(): FormControl {
+    return this.itemSearchForm.controls.item as FormControl;
+  }
+
+  get brandField(): FormControl {
+    return this.itemSearchForm.controls.brand as FormControl;
+  }
+
+  get subCategoryField(): FormControl {
+    return this.itemSearchForm.controls.subcategory as FormControl;
   }
 
   ngOnInit(): void {
     this.loadAll();
-
   }
 
   async loadAll(): Promise<void> {
-    this.displayedColumns = ['id', 'name', 'price','image','itemCode','statusItem','subCategory','brand'];
+    this.displayedColumns = ['id', 'name', 'price', 'itemCode', 'statusItem', 'subCategory', 'brand'];
     this.items = await this.itemservice.getAll();
+    this.brands = await this.brandService.getAll();
+    this.subcategories = await this.subcategoryService.getAll();
+
   }
 
 
+  async search() {
+    let searchName = this.itemField.value;
+    let searchBrand = this.brandField.value;
+    let searchSubcategory = this.subCategoryField.value;
+    let searchText = '';
+    if (searchName != null && searchBrand == null && searchSubcategory == null) {
+      searchText = "name=" + searchName
+    } else if (searchName == null && searchBrand != null && searchSubcategory == null) {
+      searchText = "brand=" + searchBrand
+    } else if (searchName == null && searchBrand == null && searchSubcategory != null) {
+      searchText = "subcategory=" + searchSubcategory;
+    } else if (searchName != null && searchBrand != null && searchSubcategory == null) {
+      searchText = "name=" + searchName + "&brand=" + searchBrand;
+    } else if (searchName != null && searchSubcategory != null && searchBrand == null) {
+      searchText = "name=" + searchName + "&subcategory=" + searchSubcategory;
+    } else if (searchName == null && searchSubcategory != null && searchBrand != null) {
+      searchText = "brand=" + searchBrand + "&subcategory=" + searchSubcategory;
+    } else if (searchName != null && searchBrand != null && searchSubcategory != null) {
+      searchText = "name=" + searchName + "&brand=" + searchBrand + "&subcategory=" + searchSubcategory;
+    } else {
+      await this.loadAll();
+    }
+    if (searchText != '') {
 
+      // @ts-ignore
+      this.items = await this.itemservice.searchAll(searchText);
+    }
 
+  }
+
+  clearForm() {
+    this.itemSearchForm.reset();
+    this.loadAll();
+  }
 }

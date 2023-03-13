@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+}
+header{
+  background: #ecf0f5;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  cursor: default;
+  margin-bottom: 10px;
+  h1,ol{
+    margin: 0;
+    padding: 0;
+  }
+  ol{
+    margin-top: 6px;
+  }
+}
+.example-form-field{
+  width: 100%;
+}

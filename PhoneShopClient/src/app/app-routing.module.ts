@@ -4,7 +4,9 @@ import {ItemVeiwComponent} from "./views/item-veiw/item-veiw.component";
 import {HomeComponent} from "./views/home/home.component";
 
 const routes: Routes = [
-  {path:"home",component:HomeComponent},{path:"items",component:ItemVeiwComponent}
+  {path:"",component:HomeComponent},
+  {path:"home",component:HomeComponent},
+  {path:"items",component:ItemVeiwComponent}
 
 ];
 

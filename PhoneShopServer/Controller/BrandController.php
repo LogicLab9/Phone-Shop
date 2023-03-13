@@ -1,6 +1,8 @@
 <?php
-
+require_once("Dao/BrandDao.php");
 class BrandController
 {
-public static function get(){}
+public static function getAll(){
+    return json_encode(BrandDao::getAll());
+}
 }
