@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <div class="row">{{ data.message }}</div>
+  <div class="row">
+    <div class="col-6">Item Name :</div>
+    <div class="col-6">{{data.itmData.name}}</div>
+  </div><div class="row">
+    <div class="col-6">Item Price :</div>
+    <div class="col-6">{{data.itmData.price}}</div>
+  </div><div class="row">
+    <div class="col-6">Item ItemCode :</div>
+    <div class="col-6">{{data.itmData.itemCode}}</div>
+  </div><div class="row">
+    <div class="col-6">Item Brand :</div>
+    <div class="col-6">{{data.itmData.brand?.['name']}}</div>
+  </div><div class="row">
+    <div class="col-6">Item Category :</div>
+    <div class="col-6">{{data.itmData.subCategory?.['name']}}</div>
+  </div><div class="row">
+    <div class="col-6">Item Status :</div>
+  <div class="col-6">{{data.itmData.statusItem?.['name']}}</div></div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No</button>
+  <button mat-button color="primary" (click)="onYesClick()">Yes</button>
+</mat-dialog-actions>

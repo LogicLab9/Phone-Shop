@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ItemService} from "../../service/item.service";
-import {Item} from "../../entities/Item";
-import {Brand} from "../../entities/Brand";
-import {BrandService} from "../../service/brand.service";
+import {ItemService} from "../../../service/item.service";
+import {Item} from "../../../entities/Item";
+import {Brand} from "../../../entities/Brand";
+import {BrandService} from "../../../service/brand.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {SubCategory} from "../../entities/subCategory";
-import {SubcategoryService} from "../../service/subcategory.service";
+import {SubCategory} from "../../../entities/subCategory";
+import {SubcategoryService} from "../../../service/subcategory.service";
 
 @Component({
   selector: 'app-item-veiw',
@@ -41,6 +41,7 @@ export class ItemVeiwComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.loadAll();
   }
 
@@ -86,5 +87,10 @@ export class ItemVeiwComponent implements OnInit {
   clearForm() {
     this.itemSearchForm.reset();
     this.loadAll();
+  }
+
+  delete(item:any) {
+
+
   }
 }

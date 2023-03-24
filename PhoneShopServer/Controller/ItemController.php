@@ -3,8 +3,6 @@ require_once("Dao/ItemDao.php");
 
 class ItemController
 {
-
-
     public static function get($searchtext)
     {
         if ($searchtext == null) {
@@ -46,13 +44,18 @@ class ItemController
                 $item = ItemDao::getByBrandAndSubCategory($brand, $subCategory);
 
             } else if ($name != null && $brand != null && $subCategory != null) {
-                $item = ItemDao::getByNameAndBrandAndSubCategory($name,$brand, $subCategory);
+                $item = ItemDao::getByNameAndBrandAndSubCategory($name, $brand, $subCategory);
             } else {
                 $item = ItemDao::getAll();
             }
             return json_encode($item);
 
         }
+    }
+
+    public static function post($itemData,$images)
+    {
+        return ItemDao::save($itemData,$images);
     }
 
 }

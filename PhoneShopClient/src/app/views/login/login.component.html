@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="submit()" [formGroup]="loginForm">
+      <div class="row">
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>User Name</mat-label>
+          <input formControlName="username" matInput type="text">
+          <mat-error *ngIf="usernameField.invalid">
+            <span *ngIf="usernameField.errors?.['required']">User Name is Required</span></mat-error>
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="outline" class="example-form-field">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput [type]="changeType?'password':'text'">
+        <span class="eyeicon" (click)="viewPass()">
+            <mat-icon>{{visible ? 'visibility' : 'visibility_off'}}</mat-icon></span>
+      </mat-form-field>
+      <div class="button">
+        <button mat-button type="submit">Login</button>
+        <button mat-button routerLink="../signup" type="button">Signup</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

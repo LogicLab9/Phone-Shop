@@ -10,7 +10,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^15.1.0",
+    "@angular-material-components/file-input": "^9.0.0",
+    "@angular/animations": "^15.2.3",
     "@angular/cdk": "^15.2.2",
     "@angular/common": "^15.1.0",
     "@angular/compiler": "^15.1.0",
@@ -22,9 +23,12 @@
     "@angular/router": "^15.1.0",
     "@ng-bootstrap/ng-bootstrap": "^14.0.1",
     "@popperjs/core": "^2.11.6",
+    "angular-file-uploader": "^7.1.1",
     "bootstrap": "^5.2.3",
+    "ngx-material-file-input": "^4.0.0",
+    "ngx-toastr": "^16.1.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.5.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

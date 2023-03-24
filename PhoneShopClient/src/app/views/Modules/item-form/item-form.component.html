@@ -1,0 +1,88 @@
+<mat-card>
+  <mat-card-header style="background-color: #003A55;padding-left: 42%;padding-right: 42%">
+    <mat-card-title style="font-family:'Fira Code',serif;font-size: 25pt;padding: 0;margin: 0;width: 100%"
+                    class="text-light pb-3">
+      Item Form
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="submit()" enctype="multipart/form-data" [formGroup]="itemForm">
+      <section class="row ">
+        <div class="col-lg-9">
+          <div class="row pt-3">
+            <div class="col-lg-12">
+              <mat-form-field appearance="outline" class="example-form-field">
+                <mat-label> Item Name :</mat-label>
+                <input formControlName="name" matInput type="text">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <mat-form-field appearance="outline" class="example-form-field">
+                <mat-label> Item Price :</mat-label>
+                <input formControlName="price" matInput type="text">
+              </mat-form-field>
+            </div>
+            <!--            <div class="col-lg-4">-->
+            <!--              <mat-form-field appearance="outline" class="example-form-field">-->
+            <!--                <mat-label> Item Code :</mat-label>-->
+            <!--                <input formControlName="itemCode" matInput type="text" >-->
+            <!--              </mat-form-field>-->
+            <!--            </div>-->
+            <div class="col-lg-6">
+              <mat-form-field appearance="outline" class="example-form-field">
+                <mat-label> Item Image :</mat-label>
+                <ngx-mat-file-input (change)="onChange($event)"
+                                    formControlName="image"></ngx-mat-file-input>
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <mat-form-field appearance="outline" class="example-form-field">
+                <mat-label>Select a Brand :</mat-label>
+                <mat-select formControlName="brand">
+                  <mat-option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4">
+              <mat-form-field appearance="outline" class="example-form-field">
+                <mat-label>Select a Category :</mat-label>
+                <mat-select formControlName="subcategory">
+                  <mat-option *ngFor="let subcategory of subcategories"
+                              [value]="subcategory.id">{{subcategory.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4">
+              <mat-form-field appearance="outline" class="example-form-field">
+                <mat-label>Select a Status :</mat-label>
+                <mat-select formControlName="status">
+                  <mat-option *ngFor="let statusItem of itemStatuses"
+                              [value]="statusItem.id">{{statusItem.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 ">
+          <div class="pt-3 pb-3">
+            <img [src]="imageUrl" *ngIf="imageUrl" alt="" class="w-100 h-50" >
+          </div>
+        </div>
+      </section>
+      <div class="row ">
+        <div class="col-lg-9">
+          <div class="text-center">
+            <button (click)="clearForm()" color="warn" mat-stroked-button type="button">Clear</button>&nbsp;
+            <button color="primary" mat-raised-button>Add</button>
+          </div>
+        </div>
+        <div class="col-lg-3"></div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

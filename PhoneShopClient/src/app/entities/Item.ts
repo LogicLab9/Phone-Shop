@@ -6,7 +6,7 @@ export class Item{
   id?:Number;
   name?:String;
   price?:Number;
-  image?:String;
+  image?:any;
   itemCode?:String;
   statusItem?:StatusItem;
   subCategory?:SubCategory;

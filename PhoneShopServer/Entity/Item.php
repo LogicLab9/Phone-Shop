@@ -5,7 +5,7 @@ class Item
     public $id;
     public $name;
     public $itemCode;
-    public $image;
+    public $image=array();
     public $price;
     public $statusItem;
     public $subCategory;
