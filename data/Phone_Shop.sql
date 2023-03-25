@@ -54,17 +54,17 @@ CREATE TABLE `item` (
   `price` decimal(10,2) DEFAULT NULL,
   `image` longtext,
   `ItemCode` char(6) DEFAULT NULL,
-  ` StatusItem_id` int NOT NULL,
+  `StatusItem_id` int NOT NULL,
   `SubCategory_id` int NOT NULL,
   `brand_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_Item_StatuItem_idx` (` StatusItem_id`),
+  KEY `fk_Item_StatuItem_idx` (`StatusItem_id`),
   KEY `fk_Item_SubCategory1_idx` (`SubCategory_id`),
   KEY `fk_Item_brand1_idx` (`brand_id`),
   CONSTRAINT `fk_Item_brand1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`),
-  CONSTRAINT `fk_Item_StatuItem` FOREIGN KEY (` StatusItem_id`) REFERENCES `statusitem` (`id`),
+  CONSTRAINT `fk_Item_StatuItem` FOREIGN KEY (`StatusItem_id`) REFERENCES `statusitem` (`id`),
   CONSTRAINT `fk_Item_SubCategory1` FOREIGN KEY (`SubCategory_id`) REFERENCES `subcategory` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (1,'M12',54000.00,NULL,'I0001',1,1,2),(2,'A10',34000.00,NULL,'I0002',2,1,2),(3,'A12',54000.00,NULL,'I0003',3,1,2),(4,'Iphone 7',35000.00,NULL,'I0004',1,1,1),(5,'Redmi 9t',45000.00,NULL,'I0005',2,1,5),(6,'Poco M3',45000.00,NULL,'I0006',3,1,5),(7,'Poco X3',80000.00,NULL,'I0007',1,1,5),(8,'Oppo F7',40000.00,NULL,'I0008',2,1,3),(9,'i12',3000.00,NULL,'I0009',3,2,1);
+INSERT INTO `item` VALUES (1,'M12',54000.00,NULL,'I21001',1,1,2),(2,'A10',34000.00,NULL,'I21002',2,1,2),(3,'A12',54000.00,NULL,'I21003',3,1,2),(4,'Iphone 7',35000.00,NULL,'I11001',1,1,1),(5,'Redmi 9t',45000.00,NULL,'I51001',2,1,5),(6,'Poco M3',45000.00,NULL,'I51002',3,1,5),(7,'Poco X3',80000.00,NULL,'I51003',1,1,5),(8,'Oppo F7',40000.00,NULL,'I31001',2,1,3),(9,'i12',3000.00,NULL,'I12001',3,2,1),(10,'airpod',100000.00,NULL,'I12012',1,2,1),(12,'iphone 8+',70000.00,NULL,'I11002',1,1,1),(13,'A13',50000.00,NULL,'I21004',1,1,2),(86,'iphone 7+',57000.00,NULL,'I11005',1,1,1),(87,'iphone 8+',70000.00,NULL,'I11006',1,1,1),(88,'iphone 7+',57000.00,'images/iphone 7+/1.jpg','I11007',1,1,1),(89,'iphone 7+',67000.00,'images/iphone 7+/','I11008',1,1,1),(91,'iphone 7+',34500.00,'images/iphone 7+/9.jpg','I11008',1,1,1),(92,'iphone 8+',60500.00,'images/iphone 8+/1.jpg','I11009',1,1,1);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,6 +124,31 @@ LOCK TABLES `subcategory` WRITE;
 INSERT INTO `subcategory` VALUES (1,'Phone'),(2,'HandFree'),(3,'Back Cover'),(4,'Battery');
 /*!40000 ALTER TABLE `subcategory` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Pamod','Pamod12345');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -134,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-07 22:00:05
+-- Dump completed on 2023-03-25 22:36:27
