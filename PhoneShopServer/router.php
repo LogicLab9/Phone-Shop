@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Headers: Content-Type');
 include_once "Controller/ItemController.php";
 require_once "Controller/BrandController.php";
 require_once "Controller/SubCatogoryController.php";

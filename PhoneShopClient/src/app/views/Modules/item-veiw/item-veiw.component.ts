@@ -6,6 +6,8 @@ import {BrandService} from "../../../service/brand.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {SubCategory} from "../../../entities/subCategory";
 import {SubcategoryService} from "../../../service/subcategory.service";
+import {ItemUpdateComponent} from "../item-update/item-update.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-item-veiw',
@@ -25,7 +27,7 @@ export class ItemVeiwComponent implements OnInit {
     subcategory: new FormControl()
   });
 
-  constructor(private itemservice: ItemService, private brandService: BrandService, private subcategoryService: SubcategoryService) {
+  constructor(private itemservice: ItemService, private brandService: BrandService, private subcategoryService: SubcategoryService, private route:Router) {
   }
 
   get itemField(): FormControl {
@@ -46,7 +48,7 @@ export class ItemVeiwComponent implements OnInit {
   }
 
   async loadAll(): Promise<void> {
-    this.displayedColumns = ['id', 'name', 'price', 'itemCode', 'statusItem', 'subCategory', 'brand'];
+    this.displayedColumns = ['id', 'name', 'price', 'itemCode', 'statusItem', 'subCategory', 'brand','update-col'];
     this.items = await this.itemservice.getAll();
     this.brands = await this.brandService.getAll();
     this.subcategories = await this.subcategoryService.getAll();
@@ -93,4 +95,12 @@ export class ItemVeiwComponent implements OnInit {
 
 
   }
+
+  onUpdate(item:Item) {
+
+    this.route.navigate(["home/update"]);
+    sessionStorage.setItem("Item",JSON.stringify(item))
+  }
+
+
 }

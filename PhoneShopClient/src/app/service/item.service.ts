@@ -34,4 +34,9 @@ export class ItemService {
 
 
   }
+  async getById(id:number){
+    const url = ApiConfig.createURL("items?id="+id);
+    return this.http.get<Item>(url).toPromise();
+
+  }
 }

@@ -22,11 +22,11 @@ import {ItemFormComponent} from './views/Modules/item-form/item-form.component';
 import {LoginComponent} from './views/login/login.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MaterialFileInputModule} from "ngx-material-file-input";
-import {ToastrModule} from "ngx-toastr";
 import { DialogComponent } from './views/dialog/dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {NgxMatFileInputModule} from "@angular-material-components/file-input";
 import {AngularFileUploaderModule} from "angular-file-uploader";
+import { ItemUpdateComponent } from './views/Modules/item-update/item-update.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import {AngularFileUploaderModule} from "angular-file-uploader";
     ItemFormComponent,
     LoginComponent,
     DialogComponent,
+    ItemUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,6 @@ import {AngularFileUploaderModule} from "angular-file-uploader";
     NgbModule,
     MatSnackBarModule,
     MaterialFileInputModule,
-    ToastrModule.forRoot(),
     MatDialogModule,
     AngularFileUploaderModule
     // NgxMatFileInputModule

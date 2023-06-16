@@ -92,15 +92,15 @@
 <!--        </button>-->
 <!--      </td>-->
 <!--    </ng-container>-->
-<!--    <ng-container matColumnDef="update-col">-->
-<!--      <th *matHeaderCellDef class="btn-col" mat-header-cell></th>-->
-<!--      <td *matCellDef="let item" class="btn-col" mat-cell>-->
-<!--        <button class="mat-flat-sm" color="accent" mat-flat-button routerLink="/employees/edit/{{item.id}}">-->
-<!--          <mat-icon>edit</mat-icon>-->
-<!--          Update-->
-<!--        </button>-->
-<!--      </td>-->
-<!--    </ng-container>-->
+    <ng-container matColumnDef="update-col">
+      <th *matHeaderCellDef class="btn-col" mat-header-cell></th>
+      <td *matCellDef="let item" class="btn-col" mat-cell>
+        <button class="mat-flat-sm" color="accent" mat-flat-button  routerLink="home/update/{{item.id}}}">
+          <mat-icon>edit</mat-icon>
+          Update
+        </button>
+      </td>
+    </ng-container>
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
   </table>
